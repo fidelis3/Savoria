@@ -61,3 +61,13 @@ document.querySelectorAll(".suggestion").forEach((button) => {
         sendMessageFromText(text);
     });
 });
+// Apply to buttons only in starter.html
+if (window.location.pathname.endsWith("starter.html")) {
+    document.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("click", () => {
+            button.textContent = "Order Taken";
+            button.disabled = true;
+            button.classList.add("bg-green-500", "text-white");
+        });
+    });
+}
