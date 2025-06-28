@@ -1,7 +1,16 @@
 # Restaurant-Website
+## 👥 Team Members & Roles
+
+1. **Edmond Oketch** – UI/UX Designer
+2. **Fidelis Ntoiti** – Full-Stack Developer
+3. **Tenbite Daniel** – Full-Stack Developer
+4. **Karanja Kariuki** – Generative AI Expert
+
 ## Overview
 
 This is a modern Restaurant Website built with **HTML**, **Tailwind CSS**, and features an integrated **AI Chatbot** powered by the Gemini API. The entire application is containerized using **Docker** for easy deployment.
+
+🔗 **Live Site:** [https://tenbite-daniel.github.io/Savoria/](https://tenbite-daniel.github.io/Savoria/)
 
 ## Features
 
