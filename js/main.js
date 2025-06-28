@@ -40,7 +40,7 @@ async function sendMessageFromText(text) {
   addMessage(text, true);
   messages.push({ content: text, role: "user" });
 
-  const typingMessage = addMessage("Typing...", false, true);
+  const typingMessage = addMessage("Savoria Chatbot is thinking...", false, true);
 
   try {
     const response = await fetch("https://savoria-production.up.railway.app/chat", {
