@@ -35,40 +35,34 @@ if (window.location.pathname.endsWith("starter.html")) {
 }
 
 async function sendMessageFromText(text) {
-    if (text.trim() === "") return;
+  if (text.trim() === "") return;
 
-    addMessage(text, true);
-    messages.push({ content: text, role: "user" });
+  addMessage(text, true);
+  messages.push({ content: text, role: "user" });
 
-    const typingMessage = addMessage("Typing...", false, true);
+  const typingMessage = addMessage("Savoria Chatbot is thinking...", false, true);
 
-    try {
-        const response = await fetch(
-            "https://savoria-production.up.railway.app/chat",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ prompt: text }),
-            }
-        );
+  try {
+    const response = await fetch("https://savoria-production.up.railway.app/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ prompt: text })
+    });
 
-        if (!response.ok)
-            throw new Error(
-                "Chatbot failed to respond. Please contact customer service"
-            );
+    if (!response.ok) throw new Error("Chatbot failed to respond. Please contact customer service");
 
-        const data = await response.json();
-        typingMessage.textContent = data.response;
-        typingMessage.removeAttribute("id");
-        messages.push({ content: data.response, role: "assistant" });
-    } catch (err) {
-        console.error(err);
-        typingMessage.textContent =
-            "Sorry, the chatbot couldn't respond. Contact customer service";
-        typingMessage.removeAttribute("id");
-    }
+    const data = await response.json();
+    typingMessage.textContent = data.response;
+    typingMessage.removeAttribute("id");
+    messages.push({ content: data.response, role: "assistant" });
+
+  } catch (err) {
+    console.error(err);
+    typingMessage.textContent = "Sorry, the chatbot couldn't respond. Contact customer service";
+    typingMessage.removeAttribute("id");
+  }
 }
 
 function sendMessage() {

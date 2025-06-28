@@ -5,7 +5,7 @@
 1. **Edmond Oketch** – UI/UX Designer
 2. **Fidelis Ntoiti** – Full-Stack Developer
 3. **Tenbite Daniel** – Full-Stack Developer
-4. **Karanja Kariuki** – Generative AI Support
+4. **Karanja Kariuki** – Generative AI Expert
 
 ## Overview
 
