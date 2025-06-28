@@ -43,7 +43,7 @@ async function sendMessageFromText(text) {
   const typingMessage = addMessage("Typing...", false, true);
 
   try {
-    const response = await fetch("https://render-2-production.up.railway.app/chat", {
+    const response = await fetch("https://savoria-production.up.railway.app/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
