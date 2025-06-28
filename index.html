@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Savoria</title>
         <link
             href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
             rel="stylesheet"
@@ -22,97 +22,207 @@
 
         <link rel="stylesheet" href="css/style.css" />
     </head>
-    <body class="bg-white">
+    <body class="bg-white dark:bg-gray-800">
         <header
-            class="w-full px-6 py-3 border border-gray-200 flex justify-between items-center max-w-[1440px] h-16"
+            class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow-md w-full px-6 py-3 border-b border-gray-200 dark:border-gray-700 h-16"
         >
-            <div class="flex items-center space-x-2">
-                <img src="img/logo.png" alt="Savoria Logo" class="w-10 h-10" />
-                <span
-                    class="text-2xl font-semibold leading-8 tracking-normal"
-                    style="
-                        color: #8b5a3c;
-                        font-family:
-                            &quot;Playfair Display&quot;, &quot;serif&quot;;
-                    "
-                    >Savoria</span
-                >
-            </div>
-            <nav
-                class="flex flex-1 justify-center items-center space-x-8 text-sm text-gray-700 font-montserrat"
+            <div
+                class="flex justify-between items-center max-w-[1440px] mx-auto"
             >
-                <a
-                    href="#home"
-                    class="text-[#374151] font-montserrat hover:text-[#8B5A3C]"
-                    >Home</a
-                >
-                <div class="relative group">
-                    <a
-                        href="#"
-                        class="text-[#374151] font-montserrat hover:text-[#8B5A3C] flex items-center"
+                <!-- Logo on the left -->
+                <div class="flex items-center space-x-2">
+                    <img
+                        src="img/logo.png"
+                        alt="Savoria Logo"
+                        class="w-10 h-10"
+                    />
+                    <span
+                        class="text-2xl font-semibold leading-8 tracking-normal text-[#8b5a3c] dark:text-amber-200"
+                        style="font-family: &quot;Playfair Display&quot;, serif"
                     >
-                        Menu
+                        Savoria
+                    </span>
+                </div>
+
+                <!-- Centered navigation (desktop only) -->
+                <nav
+                    class="hidden md:flex flex-1 justify-center items-center space-x-8 text-sm font-montserrat"
+                >
+                    <a
+                        href="#home"
+                        class="text-[#374151] dark:text-gray-300 hover:text-[#8B5A3C] dark:hover:text-amber-200"
+                        >Home</a
+                    >
+                    <div class="relative group">
+                        <span
+                            class="text-[#374151] dark:text-gray-300 hover:text-[#8B5A3C] dark:hover:text-amber-200 flex items-center"
+                        >
+                            Menu
+                            <svg
+                                class="ml-1 w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                        <div
+                            class="absolute left-0 mt-2 w-40 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200 z-10"
+                        >
+                            <a
+                                href="starters.html"
+                                class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-[#F3F4F6] dark:hover:bg-gray-700"
+                                >Starters</a
+                            >
+                            <a
+                                href="#signature"
+                                class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-[#F3F4F6] dark:hover:bg-gray-700"
+                                >Signature Dishes</a
+                            >
+                        </div>
+                    </div>
+                    <a
+                        href="#our-story"
+                        class="text-[#374151] dark:text-gray-300 hover:text-[#8B5A3C] dark:hover:text-amber-200"
+                        >Our Story</a
+                    >
+                    <a
+                        href="#feedback"
+                        class="text-[#374151] dark:text-gray-300 hover:text-[#8B5A3C] dark:hover:text-amber-200"
+                        >Feedback</a
+                    >
+                </nav>
+
+                <!-- Right section (desktop theme toggle + mobile menu button) -->
+                <div class="flex items-center space-x-6">
+                    <!-- Dark Mode Toggle Button (hidden on mobile) -->
+                    <button
+                        onclick="toggleDarkMode()"
+                        class="hidden md:block p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    >
+                        <span class="dark:hidden">🌙</span>
+                        <span class="hidden dark:inline">☀️</span>
+                    </button>
+
+                    <!-- Mobile Menu Button (visible only on mobile) -->
+                    <button
+                        id="mobile-menu-button"
+                        class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-white"
+                    >
                         <svg
-                            class="ml-1 w-4 h-4"
+                            class="w-6 h-6"
                             fill="none"
                             stroke="currentColor"
-                            stroke-width="2"
                             viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
                         >
-                            <path d="M19 9l-7 7-7-7" />
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"
+                            ></path>
                         </svg>
-                    </a>
-                    <div
-                        class="absolute left-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200 z-10"
-                    >
-                        <a
-                            href="starters.html"
-                            class="block px-4 py-2 text-gray-700 hover:bg-[#F3F4F6]"
-                            >Starters</a
-                        >
-                    </div>
+                    </button>
                 </div>
-                <a
-                    href="#our-story"
-                    class="text-[#374151] font-montserrat hover:text-[#8B5A3C]"
-                    >Our Story</a
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div
+                id="mobile-menu"
+                class="md:hidden hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg"
+            >
+                <div
+                    class="container mx-auto px-4 py-3 flex flex-col space-y-3"
                 >
-                <a
-                    href="#feedback"
-                    class="text-[#374151] font-montserrat hover:text-[#8B5A3C]"
-                    >Feedback</a
-                >
-            </nav>
+                    <a
+                        href="#home"
+                        class="text-[#374151] dark:text-gray-300 hover:text-[#8B5A3C] dark:hover:text-amber-200 py-2"
+                        >Home</a
+                    >
+
+                    <div class="relative">
+                        <button
+                            id="mobile-menu-dropdown"
+                            class="text-[#374151] dark:text-gray-300 hover:text-[#8B5A3C] dark:hover:text-amber-200 py-2 flex justify-between items-center w-full"
+                        >
+                            Menu
+                            <svg
+                                class="ml-1 w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div
+                            id="mobile-dropdown-content"
+                            class="hidden pl-4 mt-1 space-y-2"
+                        >
+                            <a
+                                href="starters.html"
+                                class="block py-1 text-[#374151] dark:text-gray-300 hover:text-[#8B5A3C] dark:hover:text-amber-200"
+                                >Starters</a
+                            >
+                            <a
+                                href="#signature"
+                                class="block py-1 text-[#374151] dark:text-gray-300 hover:text-[#8B5A3C] dark:hover:text-amber-200"
+                                >Signature Dishes</a
+                            >
+                        </div>
+                    </div>
+
+                    <a
+                        href="#our-story"
+                        class="text-[#374151] dark:text-gray-300 hover:text-[#8B5A3C] dark:hover:text-amber-200 py-2"
+                        >Our Story</a
+                    >
+                    <a
+                        href="#feedback"
+                        class="text-[#374151] dark:text-gray-300 hover:text-[#8B5A3C] dark:hover:text-amber-200 py-2"
+                        >Feedback</a
+                    >
+                    <!-- Theme toggle in mobile menu -->
+                    <button
+                        onclick="toggleDarkMode()"
+                        class="text-left py-2 text-[#374151] dark:text-gray-300 hover:text-[#8B5A3C] dark:hover:text-amber-200 flex items-center"
+                    >
+                        <span class="ml-2 dark:hidden">🌙</span>
+                        <span class="ml-2 hidden dark:inline">☀️</span>
+                    </button>
+                </div>
+            </div>
         </header>
         <section
             id="home"
-            class="w-full h-[700px] flex items-center justify-center bg-center bg-no-repeat bg-contain border border-[#E5E7EB] opacity-90 relative"
-            style="
-                background-image: url(&quot;img/home.png&quot;);
-                background-color: #fff;
-            "
+            class="w-full h-[700px] flex items-center justify-center bg-center bg-no-repeat bg-cover border border-[#E5E7EB] dark:border-gray-700 relative"
+            style="background-image: url(&quot;img/home.png&quot;)"
         >
+            <!-- Dark overlay for better text contrast in dark mode -->
+            <div class="absolute inset-0 bg-black/10 dark:bg-black/30"></div>
+
             <div
-                class="p-10 rounded-lg text-white text-center flex flex-col items-center justify-center w-full h-full"
+                class="p-10 rounded-lg text-white text-center flex flex-col items-center justify-center w-full h-full relative z-10"
             >
                 <h1
-                    class="text-4xl font-bold mb-4 leading-[60px]"
+                    class="text-4xl md:text-5xl font-bold mb-4 leading-[60px] dark:text-amber-100"
                     style="font-family: &quot;Playfair Display&quot;, serif"
                 >
                     Savoria
                 </h1>
                 <p
-                    class="text-xl mb-10"
-                    style="
-                        font-family:
-                            &quot;Montserrat&quot;, &quot;sans-serif&quot;;
-                    "
+                    class="text-xl md:text-2xl mb-10 dark:text-gray-200"
+                    style="font-family: &quot;Montserrat&quot;, sans-serif"
                 >
                     Where culinary artistry meets exceptional dining
                 </p>
                 <a
                     href="#"
-                    class="inline-block text-white text-[16px] leading-[100%] font-semibold bg-[#8b5a3c] rounded-[8px]"
+                    class="inline-block text-white text-[16px] leading-[100%] font-semibold bg-[#8b5a3c] hover:bg-[#6d452e] dark:bg-amber-700 dark:hover:bg-amber-600 rounded-[8px] transition-colors duration-300"
                     style="width: 215.984375px; height: 48px; line-height: 48px"
                 >
                     Explore Our Brand
@@ -120,13 +230,16 @@
             </div>
         </section>
 
-        <section id="our-story" class="max-w-[1440px] py-20 px-6 bg-white">
+        <section
+            id="our-story"
+            class="max-w-[1440px] py-20 px-6 bg-white dark:bg-gray-900"
+        >
             <div
                 class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10"
             >
                 <div class="md:w-1/2 mb-3">
                     <h2
-                        class="text-3xl text-[#8B5A3C] mb-10 font-extrabold"
+                        class="text-3xl text-[#8B5A3C] dark:text-amber-200 mb-10 font-extrabold"
                         style="
                             font-family: &quot;Playfair Display&quot;, serif;
                             font-size: 36px;
@@ -137,11 +250,10 @@
                         Our Story
                     </h2>
                     <p
-                        class="text-[#4B5563] leading-relaxed text-xl mb-6"
+                        class="text-[#4B5563] dark:text-gray-300 leading-relaxed text-xl mb-6"
                         style="
                             font-size: 16px;
-                            font-family:
-                                &quot;Montserrat&quot;, &quot;sans-serif&quot;;
+                            font-family: &quot;Montserrat&quot;, sans-serif;
                         "
                     >
                         At Savoria, we believe in the power of food to bring
@@ -154,6 +266,7 @@
                         embracing innovation.
                     </p>
 
+                    <!-- Freshness -->
                     <div class="flex items-center space-x-2">
                         <svg
                             width="16"
@@ -163,42 +276,38 @@
                             xmlns="http://www.w3.org/2000/svg"
                         >
                             <g clip-path="url(#clip0_29_1957)">
-                                <path d="M16 16H0V0H16V16Z" stroke="#E5E7EB" />
+                                <path
+                                    d="M16 16H0V0H16V16Z"
+                                    stroke="#E5E7EB"
+                                    class="dark:stroke-gray-700"
+                                />
                                 <path
                                     d="M8.5 3.0004C6.04375 3.0004 3.96563 4.60977 3.25938 6.82852C4.30937 6.29727 5.49375 6.0004 6.75 6.0004H9.5C9.775 6.0004 10 6.2254 10 6.5004C10 6.7754 9.775 7.0004 9.5 7.0004H9H6.75C6.23125 7.0004 5.72813 7.05977 5.24375 7.16915C4.43438 7.35352 3.68125 7.68165 3.0125 8.12852C1.19688 9.3379 0 11.4035 0 13.7504V14.2504C0 14.666 0.334375 15.0004 0.75 15.0004C1.16562 15.0004 1.5 14.666 1.5 14.2504V13.7504C1.5 12.2285 2.14688 10.8598 3.18125 9.9004C3.8 12.2598 5.94688 14.0004 8.5 14.0004H8.53125C12.6594 13.9785 16 9.90977 16 4.89415C16 3.5629 15.7656 2.29727 15.3406 1.15665C15.2594 0.941024 14.9438 0.950399 14.8344 1.15352C14.2469 2.25352 13.0844 3.0004 11.75 3.0004H8.5Z"
                                     fill="#8B5A3C"
+                                    class="dark:fill-amber-200"
                                 />
                             </g>
-                            <defs>
-                                <clipPath id="clip0_29_1957">
-                                    <rect width="16" height="16" fill="white" />
-                                </clipPath>
-                            </defs>
                         </svg>
                         <p
-                            class="font-bold text-[16px] text-[#1F2937]"
+                            class="font-bold text-[16px] text-[#1F2937] dark:text-gray-200"
                             style="
-                                font-size: 16px;
-                                font-family:
-                                    &quot;Montserrat&quot;,
-                                    &quot;sans-serif&quot;;
+                                font-family: &quot;Montserrat&quot;, sans-serif;
                             "
                         >
                             Freshness
                         </p>
                     </div>
-
                     <p
-                        class="text-[#4B5563] leading-relaxed text-xl mb-6"
+                        class="text-[#4B5563] dark:text-gray-400 leading-relaxed text-xl mb-6"
                         style="
                             font-size: 14px;
-                            font-family:
-                                &quot;Montserrat&quot;, &quot;sans-serif&quot;;
+                            font-family: &quot;Montserrat&quot;, sans-serif;
                         "
                     >
                         Locally sourced ingredients, delivered daily
                     </p>
 
+                    <!-- Culture -->
                     <div class="flex items-center space-x-2">
                         <svg
                             width="16"
@@ -208,21 +317,20 @@
                             xmlns="http://www.w3.org/2000/svg"
                         >
                             <g clip-path="url(#clip0_29_1961)">
-                                <path d="M16 16H0V0H16V16Z" stroke="#E5E7EB" />
+                                <path
+                                    d="M16 16H0V0H16V16Z"
+                                    stroke="#E5E7EB"
+                                    class="dark:stroke-gray-700"
+                                />
                                 <path
                                     d="M1.4875 9.38669L7.13438 14.6586C7.36875 14.8773 7.67812 14.9992 8 14.9992C8.32187 14.9992 8.63125 14.8773 8.86563 14.6586L14.5125 9.38669C15.4625 8.50232 16 7.26169 16 5.96482V5.78357C16 3.59919 14.4219 1.73669 12.2688 1.37732C10.8438 1.13982 9.39375 1.60544 8.375 2.62419L8 2.99919L7.625 2.62419C6.60625 1.60544 5.15625 1.13982 3.73125 1.37732C1.57812 1.73669 0 3.59919 0 5.78357V5.96482C0 7.26169 0.5375 8.50232 1.4875 9.38669Z"
                                     fill="#8B5A3C"
+                                    class="dark:fill-amber-200"
                                 />
                             </g>
-                            <defs>
-                                <clipPath id="clip0_29_1961">
-                                    <rect width="16" height="16" fill="white" />
-                                </clipPath>
-                            </defs>
                         </svg>
-
                         <p
-                            class="font-bold text-[16px] text-[#1F2937]"
+                            class="font-bold text-[16px] text-[#1F2937] dark:text-gray-200"
                             style="
                                 font-family: &quot;Montserrat&quot;, sans-serif;
                             "
@@ -230,17 +338,17 @@
                             Culture
                         </p>
                     </div>
-
                     <p
-                        class="text-[#4B5563] leading-relaxed text-xl mb-6"
+                        class="text-[#4B5563] dark:text-gray-400 leading-relaxed text-xl mb-6"
                         style="
                             font-size: 14px;
-                            font-family:
-                                &quot;Montserrat&quot;, &quot;sans-serif&quot;;
+                            font-family: &quot;Montserrat&quot;, sans-serif;
                         "
                     >
                         Preserving authentic Italian culinary traditions
                     </p>
+
+                    <!-- Community -->
                     <div class="flex items-center space-x-2">
                         <svg
                             width="20"
@@ -253,32 +361,24 @@
                                 <path
                                     d="M4.5 0C5.16304 0 5.79893 0.263392 6.26777 0.732233C6.73661 1.20107 7 1.83696 7 2.5C7 3.16304 6.73661 3.79893 6.26777 4.26777C5.79893 4.73661 5.16304 5 4.5 5C3.83696 5 3.20107 4.73661 2.73223 4.26777C2.26339 3.79893 2 3.16304 2 2.5C2 1.83696 2.26339 1.20107 2.73223 0.732233C3.20107 0.263392 3.83696 0 4.5 0ZM16 0C16.663 0 17.2989 0.263392 17.7678 0.732233C18.2366 1.20107 18.5 1.83696 18.5 2.5C18.5 3.16304 18.2366 3.79893 17.7678 4.26777C17.2989 4.73661 16.663 5 16 5C15.337 5 14.7011 4.73661 14.2322 4.26777C13.7634 3.79893 13.5 3.16304 13.5 2.5C13.5 1.83696 13.7634 1.20107 14.2322 0.732233C14.7011 0.263392 15.337 0 16 0ZM0 9.33438C0 7.49375 1.49375 6 3.33437 6H4.66875C5.16562 6 5.6375 6.10938 6.0625 6.30312C6.02187 6.52812 6.00313 6.7625 6.00313 7C6.00313 8.19375 6.52812 9.26562 7.35625 10C7.35 10 7.34375 10 7.33437 10H0.665625C0.3 10 0 9.7 0 9.33438ZM12.6656 10C12.6594 10 12.6531 10 12.6438 10C13.475 9.26562 13.9969 8.19375 13.9969 7C13.9969 6.7625 13.975 6.53125 13.9375 6.30312C14.3625 6.10625 14.8344 6 15.3313 6H16.6656C18.5063 6 20 7.49375 20 9.33438C20 9.70312 19.7 10 19.3344 10H12.6656ZM7 7C7 6.20435 7.31607 5.44129 7.87868 4.87868C8.44129 4.31607 9.20435 4 10 4C10.7956 4 11.5587 4.31607 12.1213 4.87868C12.6839 5.44129 13 6.20435 13 7C13 7.79565 12.6839 8.55871 12.1213 9.12132C11.5587 9.68393 10.7956 10 10 10C9.20435 10 8.44129 9.68393 7.87868 9.12132C7.31607 8.55871 7 7.79565 7 7ZM4 15.1656C4 12.8656 5.86562 11 8.16562 11H11.8344C14.1344 11 16 12.8656 16 15.1656C16 15.625 15.6281 16 15.1656 16H4.83437C4.375 16 4 15.6281 4 15.1656Z"
                                     fill="#8B5A3C"
+                                    class="dark:fill-amber-200"
                                 />
                             </g>
-                            <defs>
-                                <clipPath id="clip0_29_1966">
-                                    <path d="M0 0H20V16H0V0Z" fill="white" />
-                                </clipPath>
-                            </defs>
                         </svg>
                         <p
-                            class="font-bold text-[16px] text-[#1F2937]"
+                            class="font-bold text-[16px] text-[#1F2937] dark:text-gray-200"
                             style="
-                                font-size: 16px;
-                                font-family:
-                                    &quot;Montserrat&quot;,
-                                    &quot;sans-serif&quot;;
+                                font-family: &quot;Montserrat&quot;, sans-serif;
                             "
                         >
                             Community
                         </p>
                     </div>
                     <p
-                        class="text-[#4B5563] leading-relaxed text-xl mb-6"
+                        class="text-[#4B5563] dark:text-gray-400 leading-relaxed text-xl mb-6"
                         style="
                             font-size: 14px;
-                            font-family:
-                                &quot;Montserrat&quot;, &quot;sans-serif&quot;;
+                            font-family: &quot;Montserrat&quot;, sans-serif;
                         "
                     >
                         Bringing people together through exceptional food
@@ -289,178 +389,246 @@
                     <img
                         src="img/ourstory.png"
                         alt="Our Story Image"
-                        class="rounded-lg w-full h-auto object-cover shadow-md"
+                        class="rounded-lg w-full h-auto object-cover shadow-md dark:shadow-gray-800/50"
                     />
                 </div>
             </div>
         </section>
-        <article class="w-full min-w-96 h-auto">
-            <h2
-                class="text-4xl text-center text-amber-900 font-bold whitespace-nowrap"
-                style="font-family: &quot;Playfair Display&quot;, serif"
-            >
-                Signature Dishes
-            </h2>
-            <p
-                class="text-gray-600 text-lg my-2 text-center"
-                style="font-family: &quot;Montserrat&quot;, sans-serif"
-            >
-                Discover our chef's masterpieces, crafted with passion and the
-                finest ingredients
-            </p>
-            <div
-                class="grid gap-6 grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 px-4 py-8 max-w-7xl mx-auto"
-            >
-                <section class="bg-white rounded-lg shadow-lg p-4">
-                    <img
-                        src="img/truffle-risotto.png"
-                        alt="Truffle Risotto"
-                        class="rounded-md mb-4"
-                    />
-                    <h3 class="text-lg text-gray-800 font-semibold">
-                        Truffle Risotto
-                    </h3>
-                    <p
-                        class="text-sm text-gray-600"
-                        style="font-family: &quot;Montserrat&quot;, sans-serif"
+        <article
+            id="signature"
+            class="w-full min-w-96 h-auto bg-white dark:bg-gray-900 py-12"
+        >
+            <div class="max-w-7xl mx-auto">
+                <h2
+                    class="text-4xl text-center text-amber-900 dark:text-amber-200 font-bold whitespace-nowrap"
+                    style="font-family: &quot;Playfair Display&quot;, serif"
+                >
+                    Signature Dishes
+                </h2>
+                <p
+                    class="text-gray-600 dark:text-gray-300 text-lg my-2 text-center"
+                    style="font-family: &quot;Montserrat&quot;, sans-serif"
+                >
+                    Discover our chef's masterpieces, crafted with passion and
+                    the finest ingredients
+                </p>
+
+                <div
+                    class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-4 py-8"
+                >
+                    <!-- Dish Card Template (repeated for each dish) -->
+                    <section
+                        class="bg-white dark:bg-gray-800 rounded-lg shadow-lg dark:shadow-gray-700/50 p-4 transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-600/50"
                     >
-                        Creamy Arborio rice with black truffle and aged Parmesan
-                    </p>
-                </section>
-                <section class="bg-white rounded-lg shadow-lg p-4">
-                    <img
-                        src="img/osso-buco.png"
-                        alt="Osso Buco"
-                        class="rounded-md mb-4"
-                    />
-                    <h3 class="text-lg font-semibold text-gray-800">
-                        Osso Buco
-                    </h3>
-                    <p
-                        class="text-sm text-gray-600"
-                        style="font-family: &quot;Montserrat&quot;, sans-serif"
+                        <img
+                            src="img/truffle-risotto.png"
+                            alt="Truffle Risotto"
+                            class="rounded-md mb-4 w-full h-48 object-cover"
+                        />
+                        <h3
+                            class="text-lg text-gray-800 dark:text-gray-100 font-semibold"
+                        >
+                            Truffle Risotto
+                        </h3>
+                        <p
+                            class="text-sm text-gray-600 dark:text-gray-300"
+                            style="
+                                font-family: &quot;Montserrat&quot;, sans-serif;
+                            "
+                        >
+                            Creamy Arborio rice with black truffle and aged
+                            Parmesan
+                        </p>
+                    </section>
+
+                    <section
+                        class="bg-white dark:bg-gray-800 rounded-lg shadow-lg dark:shadow-gray-700/50 p-4 transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-600/50"
                     >
-                        Slow-braised veal shank with saffron risotto milanese
-                    </p>
-                </section>
-                <section class="bg-white rounded-lg shadow-lg p-4">
-                    <img
-                        src="img/classic-tiramisu.png"
-                        alt="Classic Tiramisu"
-                        class="rounded-md mb-4"
-                    />
-                    <h3 class="text-lg font-semibold text-gray-800">
-                        Classic Tiramisu
-                    </h3>
-                    <p
-                        class="text-sm text-gray-600"
-                        style="font-family: &quot;Montserrat&quot;, sans-serif"
+                        <img
+                            src="img/osso-buco.png"
+                            alt="Osso Buco"
+                            class="rounded-md mb-4 w-full h-48 object-cover"
+                        />
+                        <h3
+                            class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                        >
+                            Osso Buco
+                        </h3>
+                        <p
+                            class="text-sm text-gray-600 dark:text-gray-300"
+                            style="
+                                font-family: &quot;Montserrat&quot;, sans-serif;
+                            "
+                        >
+                            Slow-braised veal shank with saffron risotto
+                            milanese
+                        </p>
+                    </section>
+
+                    <section
+                        class="bg-white dark:bg-gray-800 rounded-lg shadow-lg dark:shadow-gray-700/50 p-4 transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-600/50"
                     >
-                        Traditional mascarpone dessert with espresso-soaked
-                        ladyfingers
-                    </p>
-                </section>
-                <section class="bg-white rounded-lg shadow-lg p-4">
-                    <img
-                        src="img/linguine-alle-vongole.png"
-                        alt="Linguine alle Vongole"
-                        class="rounded-md mb-4"
-                    />
-                    <h3 class="text-lg font-semibold text-gray-800">
-                        Linguine alle Vongole
-                    </h3>
-                    <p
-                        class="text-sm text-gray-600"
-                        style="font-family: &quot;Montserrat&quot;, sans-serif"
+                        <img
+                            src="img/classic-tiramisu.png"
+                            alt="Classic Tiramisu"
+                            class="rounded-md mb-4 w-full h-48 object-cover"
+                        />
+                        <h3
+                            class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                        >
+                            Classic Tiramisu
+                        </h3>
+                        <p
+                            class="text-sm text-gray-600 dark:text-gray-300"
+                            style="
+                                font-family: &quot;Montserrat&quot;, sans-serif;
+                            "
+                        >
+                            Traditional mascarpone dessert with espresso-soaked
+                            ladyfingers
+                        </p>
+                    </section>
+
+                    <section
+                        class="bg-white dark:bg-gray-800 rounded-lg shadow-lg dark:shadow-gray-700/50 p-4 transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-600/50"
                     >
-                        Fresh clams with white wine, garlic, and parsley
-                    </p>
-                </section>
-                <section class="bg-white rounded-lg shadow-lg p-4">
-                    <img
-                        src="img/antipasto-della-casa.png"
-                        alt="Antipasto della Casa"
-                        class="rounded-md mb-4"
-                    />
-                    <h3 class="text-lg font-semibold text-gray-800">
-                        Antipasto della Casa
-                    </h3>
-                    <p
-                        class="text-sm text-gray-600"
-                        style="font-family: &quot;Montserrat&quot;, sans-serif"
+                        <img
+                            src="img/linguine-alle-vongole.png"
+                            alt="Linguine alle Vongole"
+                            class="rounded-md mb-4 w-full h-48 object-cover"
+                        />
+                        <h3
+                            class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                        >
+                            Linguine alle Vongole
+                        </h3>
+                        <p
+                            class="text-sm text-gray-600 dark:text-gray-300"
+                            style="
+                                font-family: &quot;Montserrat&quot;, sans-serif;
+                            "
+                        >
+                            Fresh clams with white wine, garlic, and parsley
+                        </p>
+                    </section>
+
+                    <section
+                        class="bg-white dark:bg-gray-800 rounded-lg shadow-lg dark:shadow-gray-700/50 p-4 transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-600/50"
                     >
-                        Selection of cured meats, artisanal cheeses, and olives
-                    </p>
-                </section>
-                <section class="bg-white rounded-lg shadow-lg p-4">
-                    <img
-                        src="img/branzino-al-sale.png"
-                        alt="Branzino al Sale"
-                        class="rounded-md mb-4"
-                    />
-                    <h3 class="text-lg font-semibold text-gray-800">
-                        Branzino al Sale
-                    </h3>
-                    <p
-                        class="text-sm text-gray-600"
-                        style="font-family: &quot;Montserrat&quot;, sans-serif"
+                        <img
+                            src="img/antipasto-della-casa.png"
+                            alt="Antipasto della Casa"
+                            class="rounded-md mb-4 w-full h-48 object-cover"
+                        />
+                        <h3
+                            class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                        >
+                            Antipasto della Casa
+                        </h3>
+                        <p
+                            class="text-sm text-gray-600 dark:text-gray-300"
+                            style="
+                                font-family: &quot;Montserrat&quot;, sans-serif;
+                            "
+                        >
+                            Selection of cured meats, artisanal cheeses, and
+                            olives
+                        </p>
+                    </section>
+
+                    <section
+                        class="bg-white dark:bg-gray-800 rounded-lg shadow-lg dark:shadow-gray-700/50 p-4 transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-600/50"
                     >
-                        Mediterranean sea bass baked in sea salt crust
-                    </p>
-                </section>
-                <section class="bg-white rounded-lg shadow-lg p-4">
-                    <img
-                        src="img/panna-cotta.png"
-                        alt="Panna Cotta"
-                        class="rounded-md mb-4"
-                    />
-                    <h3 class="text-lg font-semibold">Panna Cotta</h3>
-                    <p
-                        class="text-sm text-gray-600"
-                        style="font-family: &quot;Montserrat&quot;, sans-serif"
+                        <img
+                            src="img/branzino-al-sale.png"
+                            alt="Branzino al Sale"
+                            class="rounded-md mb-4 w-full h-48 object-cover"
+                        />
+                        <h3
+                            class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                        >
+                            Branzino al Sale
+                        </h3>
+                        <p
+                            class="text-sm text-gray-600 dark:text-gray-300"
+                            style="
+                                font-family: &quot;Montserrat&quot;, sans-serif;
+                            "
+                        >
+                            Mediterranean sea bass baked in sea salt crust
+                        </p>
+                    </section>
+
+                    <section
+                        class="bg-white dark:bg-gray-800 rounded-lg shadow-lg dark:shadow-gray-700/50 p-4 transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-600/50"
                     >
-                        Silky vanilla custard with seasonal berry compote
-                    </p>
-                </section>
-                <section class="bg-white rounded-lg shadow-lg p-4">
-                    <img
-                        src="img/carbonara-romana.png"
-                        alt="Carbonara Romana"
-                        class="rounded-md mb-4"
-                    />
-                    <h3 class="text-lg font-semibold text-gray-800">
-                        Carbonara Romana
-                    </h3>
-                    <p
-                        class="text-sm text-gray-600"
-                        style="font-family: &quot;Montserrat&quot;, sans-serif"
+                        <img
+                            src="img/panna-cotta.png"
+                            alt="Panna Cotta"
+                            class="rounded-md mb-4 w-full h-48 object-cover"
+                        />
+                        <h3
+                            class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                        >
+                            Panna Cotta
+                        </h3>
+                        <p
+                            class="text-sm text-gray-600 dark:text-gray-300"
+                            style="
+                                font-family: &quot;Montserrat&quot;, sans-serif;
+                            "
+                        >
+                            Silky vanilla custard with seasonal berry compote
+                        </p>
+                    </section>
+
+                    <section
+                        class="bg-white dark:bg-gray-800 rounded-lg shadow-lg dark:shadow-gray-700/50 p-4 transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-600/50"
                     >
-                        Traditional Roman pasta with pancetta and pecorino
-                    </p>
-                </section>
+                        <img
+                            src="img/carbonara-romana.png"
+                            alt="Carbonara Romana"
+                            class="rounded-md mb-4 w-full h-48 object-cover"
+                        />
+                        <h3
+                            class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                        >
+                            Carbonara Romana
+                        </h3>
+                        <p
+                            class="text-sm text-gray-600 dark:text-gray-300"
+                            style="
+                                font-family: &quot;Montserrat&quot;, sans-serif;
+                            "
+                        >
+                            Traditional Roman pasta with pancetta and pecorino
+                        </p>
+                    </section>
+                </div>
             </div>
         </article>
         <article
-            class="w-full min-w-96 h-auto bg-gray-200 flex flex-col justify-center items-center gap-3 pt-8 pb-12"
+            class="w-full min-w-96 h-auto bg-gray-200 dark:bg-gray-800 flex flex-col justify-center items-center gap-3 pt-8 pb-12"
             id="feedback"
         >
             <h2
-                class="text-4xl text-[#8B5A3C] font-bold whitespace-nowrap"
+                class="text-4xl text-[#8B5A3C] dark:text-amber-200 font-bold whitespace-nowrap"
                 style="font-family: &quot;Playfair Display&quot;, serif"
             >
                 Share Your Thoughts
             </h2>
             <p
-                class="text-gray-600 text-lg mb-6 text-center"
+                class="text-gray-600 dark:text-gray-300 text-lg mb-6 text-center"
                 style="font-family: &quot;Montserrat&quot;, sans-serif"
             >
                 We value your feedback and would love to hear about your
                 experience
             </p>
+
             <form
                 id="feedback-form"
                 action="#"
-                class="bg-white p-10 rounded-lg shadow-md w-full max-w-3xl"
+                class="bg-white dark:bg-gray-700 p-10 rounded-lg shadow-md dark:shadow-gray-900/50 w-full max-w-3xl transition-colors duration-300"
             >
                 <section
                     class="w-full flex flex-col md:flex-row gap-x-20 gap-y-6 mb-6"
@@ -469,127 +637,142 @@
                     <p class="w-full md:w-1/2">
                         <label
                             for="full-name"
-                            class="block mb-2 text-gray-700 font-medium"
-                            >Full Name</label
+                            class="block mb-2 text-gray-700 dark:text-gray-300 font-medium"
                         >
+                            Full Name
+                        </label>
                         <input
                             type="text"
                             placeholder="Enter your full name"
                             id="full-name"
                             required
                             autocomplete="on"
-                            class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                            class="w-full border border-gray-300 dark:border-gray-600 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white dark:bg-gray-600 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-200"
                         />
                     </p>
                     <p class="w-full md:w-1/2">
                         <label
                             for="email"
-                            class="block mb-2 text-gray-700 font-medium"
-                            >Email</label
+                            class="block mb-2 text-gray-700 dark:text-gray-300 font-medium"
                         >
+                            Email
+                        </label>
                         <input
                             type="email"
                             placeholder="Enter your email address"
                             id="email"
                             required
                             autocomplete="on"
-                            class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                            class="w-full border border-gray-300 dark:border-gray-600 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white dark:bg-gray-600 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-200"
                         />
                     </p>
                 </section>
+
                 <p class="mb-6">
                     <label
                         for="phone"
-                        class="block mb-2 text-gray-700 font-medium"
-                        >Phone (Optional)</label
+                        class="block mb-2 text-gray-700 dark:text-gray-300 font-medium"
                     >
+                        Phone (Optional)
+                    </label>
                     <input
                         type="tel"
                         placeholder="Enter your phone number"
                         id="phone"
                         autocomplete="on"
-                        class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                        class="w-full border border-gray-300 dark:border-gray-600 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white dark:bg-gray-600 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-200"
                     />
                 </p>
+
                 <p class="mb-6">
                     <label
                         for="message"
-                        class="block mb-2 text-gray-700 font-medium"
-                        >Message</label
+                        class="block mb-2 text-gray-700 dark:text-gray-300 font-medium"
                     >
+                        Message
+                    </label>
                     <textarea
                         id="message"
                         cols="30"
                         rows="5"
                         required
                         placeholder="Share your feedback, suggestions, or dining experience with us."
-                        class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                        class="w-full border border-gray-300 dark:border-gray-600 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white dark:bg-gray-600 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 transition-colors duration-200"
                     ></textarea>
                 </p>
+
                 <button
-                    class="w-full bg-[#8B5A3C] hover:bg-amber-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200"
+                    class="w-full bg-[#8B5A3C] dark:bg-amber-600 hover:bg-amber-700 dark:hover:bg-amber-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200"
+                    type="submit"
                 >
                     Submit Feedback
                 </button>
             </form>
         </article>
         <article
-            class="w-full min-w-96 h-auto flex flex-col justify-center items-center gap-3 pt-8 pb-12"
+            class="w-full min-w-96 h-auto flex flex-col justify-center items-center gap-3 pt-8 pb-12 bg-white dark:bg-gray-900"
             id="chatbot"
         >
-            <h2 class="text-4xl text-[#8b5a3c] font-bold whitespace-nowrap" style="font-family: &quot;Playfair Display&quot;, serif">
-                Chat with Our Chef
+            <h2
+                class="text-4xl text-amber-900 dark:text-amber-200 font-medium text-center"
+            >
+                <span class="whitespace-nowrap">Chat with Our</span>
+                <span class="whitespace-nowrap">AI Assistant</span>
             </h2>
-            <p class="text-gray-600 text-lg mb-6 text-center" style="font-family: &quot;Montserrat&quot;, sans-serif">
+            <p
+                class="text-gray-600 dark:text-gray-300 text-lg mb-6 text-center"
+            >
                 Ask about our dishes, ingredients, or get personalized
                 recommendations
             </p>
             <section id="chatbot" class="w-full max-w-3xl mt-5">
                 <div
                     id="chat-container"
-                    class="w-full bg-white border border-slate-200"
+                    class="w-full bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-xl"
                 >
                     <h2
-                        class="w-full bg-[#8B5A3C] text-white -mt-10 mb-0 p-2 border rounded-tl-xl rounded-tr-xl whitespace-nowrap"
+                        class="w-full bg-amber-900 dark:bg-amber-700 text-white -mt-10 mb-0 p-2 border dark:border-amber-800 rounded-tl-xl rounded-tr-xl whitespace-nowrap"
                     >
                         Savoria AI Assistant
                     </h2>
                     <div
                         id="messages"
-                        class="h-80 pt-10 overflow-y-auto border-b-slate-200"
+                        class="h-80 pt-10 overflow-y-auto border-b-slate-200 dark:border-b-gray-700 scroll-smooth"
                     ></div>
 
                     <div
                         id="chat-input"
-                        class="w-full p-1 flex flex-col justify-center items-center border-t border-slate-400"
+                        class="w-full p-1 flex flex-col justify-center items-center border-t border-slate-400 dark:border-gray-600"
                     >
-                        <section class="flex gap-3 mt-2">
+                        <section
+                            class="sm:flex sm:flex-row flex flex-col gap-3 mt-2"
+                        >
                             <button
-                                class="bg-gray-300 py-1 px-3 rounded-lg cursor-pointer suggestion"
+                                class="bg-gray-300 dark:bg-gray-600 py-1 px-3 rounded-lg cursor-pointer suggestion text-gray-800 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors"
                             >
                                 What's the most popular dish?
                             </button>
                             <button
-                                class="bg-gray-300 py-1 px-3 rounded-lg cursor-pointer suggestion"
+                                class="bg-gray-300 dark:bg-gray-600 py-1 px-3 rounded-lg cursor-pointer suggestion text-gray-800 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors"
                             >
                                 Do you have vegetarian options?
                             </button>
                             <button
-                                class="bg-gray-300 py-1 px-3 rounded-lg cursor-pointer suggestion"
+                                class="bg-gray-300 dark:bg-gray-600 py-1 px-3 rounded-lg cursor-pointer suggestion text-gray-800 dark:text-gray-200 hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors"
                             >
                                 Tell me about wine pairings
                             </button>
                         </section>
-                        <section class="w-full mt-3">
+                        <section class="w-full mt-3 flex">
                             <input
                                 type="text"
                                 id="input-message"
-                                class="w-11/12 flex-grow p-2 mb-2 mx-2 border border-slate-200"
+                                class="w-11/12 flex-grow p-2 mb-2 mx-2 border border-slate-200 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
                                 placeholder="Type a message..."
                             />
                             <button
                                 onclick="sendMessage()"
-                                class="py-1 px-2 mb-2 mr-2 text-white bg-amber-900 border-none rounded-md cursor-pointer"
+                                class="py-1 px-2 mb-2 mr-2 text-white bg-amber-900 dark:bg-amber-700 border-none rounded-md cursor-pointer hover:bg-amber-800 dark:hover:bg-amber-600 transition-colors"
                             >
                                 <i class="fa-solid fa-paper-plane"></i>
                             </button>
@@ -598,78 +781,351 @@
                 </div>
             </section>
         </article>
-        <footer class="bg-[#2C1810] text-white p-8 md:p-12">
+        <footer
+            class="w-full bg-[#292524] dark:bg-gray-900 mt-16 pt-12 pb-6 px-6 transition-colors duration-300"
+        >
             <div
-                class="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
+                class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
             >
-                <section class="space-y-4">
-                    <div class="flex items-center gap-4">
-                        <a href="#">
-                            <img
-                                src="img/footer-logo.png"
-                                alt="Savoria Logo"
-                                class="h-12 w-auto"
-                            />
-                        </a>
-                        <h2 class="text-3xl font-bold">Savoria</h2>
+                <!-- Savoria Column -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-[21px] h-[24px]">
+                            <svg
+                                width="21"
+                                height="24"
+                                viewBox="0 0 21 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <g clip-path="url(#clip0_107_497)">
+                                    <path
+                                        d="M19.5 0C18.75 0 13.5 1.5 13.5 8.25V13.5C13.5 15.1547 14.8453 16.5 16.5 16.5H18V22.5C18 23.3297 18.6703 24 19.5 24C20.3297 24 21 23.3297 21 22.5V16.5V11.25V1.5C21 0.670312 20.3297 0 19.5 0ZM3 0.75C3 0.365625 2.71406 0.046875 2.32969 0.0046875C1.94531 -0.0375 1.60313 0.215625 1.51875 0.585938L0.0984375 6.975C0.0328125 7.27031 0 7.57031 0 7.87031C0 10.0219 1.64531 11.7891 3.75 11.9813V22.5C3.75 23.3297 4.42031 24 5.25 24C6.07969 24 6.75 23.3297 6.75 22.5V11.9813C8.85469 11.7891 10.5 10.0219 10.5 7.87031C10.5 7.57031 10.4672 7.27031 10.4016 6.975L8.98125 0.585938C8.89688 0.210938 8.54531 -0.0375 8.16562 0.0046875C7.78594 0.046875 7.5 0.365625 7.5 0.75V7.04062C7.5 7.29375 7.29375 7.5 7.04062 7.5C6.80156 7.5 6.60469 7.31719 6.58125 7.07812L5.99531 0.684375C5.9625 0.295313 5.63906 0 5.25 0C4.86094 0 4.5375 0.295313 4.50469 0.684375L3.92344 7.07812C3.9 7.31719 3.70312 7.5 3.46406 7.5C3.21094 7.5 3.00469 7.29375 3.00469 7.04062V0.75H3ZM5.26406 7.875H5.25H5.23594L5.25 7.84219L5.26406 7.875Z"
+                                        fill="#D97706"
+                                        class="dark:fill-amber-500"
+                                    />
+                                </g>
+                            </svg>
+                        </div>
+                        <span
+                            class="font-Inter font-bold ml-2 dark:text-gray-300"
+                            style="
+                                font-size: 24px;
+                                line-height: 32px;
+                                color: #d6d3d1;
+                            "
+                            >Savoria</span
+                        >
                     </div>
-                    <p>Authentic Italian cuisine in the heart of the city</p>
-                </section>
-                <section class="space-y-4">
-                    <h3
-                        class="text-xl font-semibold border-b border-amber-700 pb-2"
+                    <div
+                        class="font-Inter font-normal dark:text-gray-400"
+                        style="
+                            font-size: 14px;
+                            line-height: 20px;
+                            color: #d6d3d1;
+                        "
+                    >
+                        Crafting exceptional dining experience with passion and
+                        artistry.
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div>
+                    <div
+                        class="font-Inter font-bold mb-4 dark:text-gray-300"
+                        style="
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #d6d3d1;
+                        "
                     >
                         Quick Links
-                    </h3>
-                    <nav aria-label="footer" class="flex flex-col space-y-2">
-                        <a href="#home" class="hover:text-amber-300 transition"
-                            >Home</a
-                        >
-                        <a href="#" class="hover:text-amber-300 transition"
-                            >Menu</a
-                        >
-                        <a
-                            href="#our-story"
-                            class="hover:text-amber-300 transition"
-                            >Our Story</a
-                        >
-                        <a
-                            href="#feedback"
-                            class="hover:text-amber-300 transition"
-                            >Feedback</a
-                        >
-                    </nav>
-                </section>
-                <section class="space-y-4">
-                    <h3
-                        class="text-xl font-semibold border-b border-amber-700 pb-2"
+                    </div>
+                    <ul class="space-y-2">
+                        <li>
+                            <a
+                                href="index.html"
+                                class="font-Inter font-normal hover:underline dark:text-gray-400 dark:hover:text-gray-300 transition-colors"
+                                style="
+                                    font-size: 14px;
+                                    line-height: 20px;
+                                    color: #d6d3d1;
+                                "
+                                >Home</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="#our-story"
+                                class="font-Inter font-normal hover:underline dark:text-gray-400 dark:hover:text-gray-300 transition-colors"
+                                style="
+                                    font-size: 14px;
+                                    line-height: 20px;
+                                    color: #d6d3d1;
+                                "
+                                >Our Story</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="starters.html"
+                                class="font-Inter font-normal hover:underline dark:text-gray-400 dark:hover:text-gray-300 transition-colors"
+                                style="
+                                    font-size: 14px;
+                                    line-height: 20px;
+                                    color: #d6d3d1;
+                                "
+                                >Starter</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="#signature"
+                                class="font-Inter font-normal hover:underline dark:text-gray-400 dark:hover:text-gray-300 transition-colors"
+                                style="
+                                    font-size: 14px;
+                                    line-height: 20px;
+                                    color: #d6d3d1;
+                                "
+                                >Signature Dishes</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="#feedback"
+                                class="font-Inter font-normal hover:underline dark:text-gray-400 dark:hover:text-gray-300 transition-colors"
+                                style="
+                                    font-size: 14px;
+                                    line-height: 20px;
+                                    color: #d6d3d1;
+                                "
+                                >Feedback</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="#chatbot"
+                                class="font-Inter font-normal hover:underline dark:text-gray-400 dark:hover:text-gray-300 transition-colors"
+                                style="
+                                    font-size: 14px;
+                                    line-height: 20px;
+                                    color: #d6d3d1;
+                                "
+                                >Chatbot</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div>
+                    <div
+                        class="font-Inter font-bold mb-4 dark:text-gray-300"
+                        style="
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #d6d3d1;
+                        "
                     >
-                        Contact Info
-                    </h3>
-                    <address class="not-italic space-y-2">
-                        <p class="flex items-center gap-2">
-                            <span><i class="fa-solid fa-phone"></i></span> 1
-                            (858) 123-4567
-                        </p>
-                        <p class="flex items-center gap-2">
-                            <span><i class="fa-solid fa-envelope"></i></span>
-                            info@savoria.com
-                        </p>
-                        <p class="flex items-center gap-2">
-                            <span
-                                ><i class="fa-solid fa-location-dot"></i
-                            ></span>
-                            23 Culinary Street, Food District
-                        </p>
-                    </address>
-                    <section class="mt-8 pt-6 border-t border-amber-700">
-                        <h2 class="text-xl font-semibold mb-2">Hours</h2>
-                        <p>Mon-Thu: 5PM-10PM</p>
-                        <p>Fri-Sun: 11AM-11PM</p>
-                    </section>
-                </section>
+                        Contact
+                    </div>
+                    <ul class="space-y-2">
+                        <li
+                            class="font-Inter font-normal flex items-center dark:text-gray-400"
+                            style="
+                                font-size: 14px;
+                                line-height: 20px;
+                                color: #d6d3d1;
+                            "
+                        >
+                            <svg
+                                width="14"
+                                height="15"
+                                viewBox="0 0 14 15"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M4.50898 1.42266C4.29844 0.914069 3.74336 0.643366 3.21289 0.788287L0.806641 1.44454C0.330859 1.57579 0 2.00782 0 2.50001C0 9.26485 5.48516 14.75 12.25 14.75C12.7422 14.75 13.1742 14.4191 13.3055 13.9434L13.9617 11.5371C14.1066 11.0066 13.8359 10.4516 13.3273 10.241L10.7023 9.14727C10.2566 8.96133 9.73984 9.08985 9.43633 9.46446L8.33164 10.8125C6.40664 9.90196 4.84805 8.34337 3.9375 6.41837L5.28555 5.31641C5.66016 5.01016 5.78867 4.4961 5.60273 4.0504L4.50898 1.4254V1.42266Z"
+                                    fill="#D6D3D1"
+                                    class="dark:fill-gray-400"
+                                />
+                            </svg>
+                            <p class="ml-2">(555) 123-4567</p>
+                        </li>
+                        <li
+                            class="font-Inter font-normal flex items-center dark:text-gray-400"
+                            style="
+                                font-size: 14px;
+                                line-height: 20px;
+                                color: #d6d3d1;
+                            "
+                        >
+                            <svg
+                                width="14"
+                                height="11"
+                                viewBox="0 0 14 11"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M1.3125 0.5C0.587891 0.5 0 1.08789 0 1.8125C0 2.22539 0.194141 2.61367 0.525 2.8625L6.475 7.325C6.78672 7.55742 7.21328 7.55742 7.525 7.325L13.475 2.8625C13.8059 2.61367 14 2.22539 14 1.8125C14 1.08789 13.4121 0.5 12.6875 0.5H1.3125ZM0 3.5625V9.25C0 10.2152 0.784766 11 1.75 11H12.25C13.2152 11 14 10.2152 14 9.25V3.5625L8.05 8.025C7.42656 8.49258 6.57344 8.49258 5.95 8.025L0 3.5625Z"
+                                    fill="#D6D3D1"
+                                    class="dark:fill-gray-400"
+                                />
+                            </svg>
+                            <a
+                                href="mailto:info@savoria.com"
+                                class="hover:underline ml-2"
+                                >info@savoria.com</a
+                            >
+                        </li>
+                        <li
+                            class="font-Inter font-normal flex items-center dark:text-gray-400"
+                            style="
+                                font-size: 14px;
+                                line-height: 20px;
+                                color: #d6d3d1;
+                            "
+                        >
+                            <svg
+                                width="11"
+                                height="15"
+                                viewBox="0 0 11 15"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M5.89805 14.4C7.30078 12.6445 10.5 8.38984 10.5 6C10.5 3.10156 8.14844 0.75 5.25 0.75C2.35156 0.75 0 3.10156 0 6C0 8.38984 3.19922 12.6445 4.60195 14.4C4.93828 14.8184 5.56172 14.8184 5.89805 14.4ZM5.25 4.25C5.71413 4.25 6.15925 4.43437 6.48744 4.76256C6.81563 5.09075 7 5.53587 7 6C7 6.46413 6.81563 6.90925 6.48744 7.23744C6.15925 7.56563 5.71413 7.75 5.25 7.75C4.78587 7.75 4.34075 7.56563 4.01256 7.23744C3.68437 6.90925 3.5 6.46413 3.5 6C3.5 5.53587 3.68437 5.09075 4.01256 4.76256C4.34075 4.43437 4.78587 4.25 5.25 4.25Z"
+                                    fill="#D6D3D1"
+                                    class="dark:fill-gray-400"
+                                />
+                            </svg>
+                            <p class="ml-2">123 Gourmet Street</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Hours Column -->
+                <div>
+                    <div
+                        class="font-Inter font-bold mb-4 dark:text-gray-300"
+                        style="
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #d6d3d1;
+                        "
+                    >
+                        Hours
+                    </div>
+                    <ul class="space-y-2">
+                        <li
+                            class="font-Inter font-normal dark:text-gray-400"
+                            style="
+                                font-size: 14px;
+                                line-height: 20px;
+                                color: #d6d3d1;
+                            "
+                        >
+                            Mon-Thu: 5:00 PM - 10:00 PM
+                        </li>
+                        <li
+                            class="font-Inter font-normal dark:text-gray-400"
+                            style="
+                                font-size: 14px;
+                                line-height: 20px;
+                                color: #d6d3d1;
+                            "
+                        >
+                            Fri-Sat: 5:00 PM - 11:00 PM
+                        </li>
+                        <li
+                            class="font-Inter font-normal dark:text-gray-400"
+                            style="
+                                font-size: 14px;
+                                line-height: 20px;
+                                color: #d6d3d1;
+                            "
+                        >
+                            Sunday: 4:00 PM - 9:00 PM
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div
+                class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center mt-10 border-t border-[#44403C] dark:border-gray-700 pt-4"
+            >
+                <div
+                    class="font-Inter text-xs dark:text-gray-400"
+                    style="color: #d6d3d1"
+                >
+                    &copy; 2025 Savoria. All rights reserved.
+                </div>
+                <div class="flex space-x-4 mt-4 sm:mt-0">
+                    <a
+                        href="https://facebook.com"
+                        target="_blank"
+                        aria-label="Facebook"
+                        class="hover:opacity-80 transition-opacity"
+                    >
+                        <svg
+                            width="22"
+                            height="22"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M22 12C22 6.477 17.523 2 12 2S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.877v-6.987h-2.54v-2.89h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.632.771-1.632 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12z"
+                                fill="#D6D3D1"
+                                class="dark:fill-gray-400"
+                            />
+                        </svg>
+                    </a>
+                    <a
+                        href="https://instagram.com"
+                        target="_blank"
+                        aria-label="Instagram"
+                        class="hover:opacity-80 transition-opacity"
+                    >
+                        <svg
+                            width="22"
+                            height="22"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm6.5-.5a1 1 0 11-2 0 1 1 0 012 0z"
+                                fill="#D6D3D1"
+                                class="dark:fill-gray-400"
+                            />
+                        </svg>
+                    </a>
+                    <a
+                        href="https://twitter.com"
+                        target="_blank"
+                        aria-label="Twitter"
+                        class="hover:opacity-80 transition-opacity"
+                    >
+                        <svg
+                            width="22"
+                            height="22"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M22.46 5.924c-.793.352-1.645.59-2.54.698a4.48 4.48 0 001.963-2.475 8.94 8.94 0 01-2.828 1.082A4.48 4.48 0 0016.11 4c-2.48 0-4.49 2.01-4.49 4.49 0 .352.04.696.116 1.025C7.728 9.37 4.1 7.575 1.67 4.905a4.49 4.49 0 00-.61 2.26c0 1.56.793 2.94 2.003 3.75a4.48 4.48 0 01-2.034-.563v.057c0 2.18 1.55 4 3.604 4.415a4.48 4.48 0 01-2.028.077c.573 1.79 2.24 3.09 4.215 3.13A8.98 8.98 0 012 19.54a12.67 12.67 0 006.88 2.02c8.26 0 12.78-6.84 12.78-12.78 0-.195-.004-.39-.013-.583A9.14 9.14 0 0024 4.59a8.93 8.93 0 01-2.54.697z"
+                                fill="#D6D3D1"
+                                class="dark:fill-gray-400"
+                            />
+                        </svg>
+                    </a>
+                </div>
             </div>
         </footer>
         <script src="js/main.js" defer></script>
+        <script src="js/script.js" defer></script>
     </body>
 </html>

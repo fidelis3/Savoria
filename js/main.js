@@ -1,37 +1,37 @@
 const messages = [];
 
 function addMessage(msg, isUser, isTyping = false) {
-  const messagesDiv = document.getElementById("messages");
-  const messageDiv = document.createElement("div");
+    const messagesDiv = document.getElementById("messages");
+    const messageDiv = document.createElement("div");
 
-  if (isUser) {
-    messageDiv.className =
-      "w-1/2 ml-80 py-2 pr-5 text-right bg-amber-900 rounded-2xl text-white";
-  } else {
-    messageDiv.className =
-      "w-1/2 mr-80 mt-2 py-2 pl-5 text-left bg-gray-200 rounded-2xl text-black";
-  }
+    if (isUser) {
+        messageDiv.className =
+            "w-full md:w-1/2 md:ml-80 py-2 px-5 md:pr-5 text-right bg-amber-900 rounded-2xl text-white";
+    } else {
+        messageDiv.className =
+            "w-full md:w-1/2 md:mr-80 mt-2 py-2 px-5 md:pl-5 text-left bg-gray-200 rounded-2xl text-black dark:text-gray-200 dark:bg-gray-600";
+    }
 
-  messageDiv.textContent = msg;
+    messageDiv.textContent = msg;
 
-  if (isTyping) {
-    messageDiv.setAttribute("id", "typing-message");
-  }
+    if (isTyping) {
+        messageDiv.setAttribute("id", "typing-message");
+    }
 
-  messagesDiv.appendChild(messageDiv);
-  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    messagesDiv.appendChild(messageDiv);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
-  return messageDiv;
+    return messageDiv;
 }
 
 if (window.location.pathname.endsWith("starter.html")) {
-  document.querySelectorAll("button").forEach((button) => {
-    button.addEventListener("click", () => {
-      button.textContent = "Order Taken";
-      button.disabled = true;
-      button.classList.add("bg-green-500", "text-white");
+    document.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("click", () => {
+            button.textContent = "Order Taken";
+            button.disabled = true;
+            button.classList.add("bg-green-500", "text-white");
+        });
     });
-  });
 }
 
 async function sendMessageFromText(text) {
@@ -66,25 +66,25 @@ async function sendMessageFromText(text) {
 }
 
 function sendMessage() {
-  const input = document.getElementById("input-message");
-  const message = input.value.trim();
+    const input = document.getElementById("input-message");
+    const message = input.value.trim();
 
-  if (message) {
-    sendMessageFromText(message);
-    input.value = "";
-  }
+    if (message) {
+        sendMessageFromText(message);
+        input.value = "";
+    }
 }
 
 document.querySelectorAll(".suggestion").forEach((button) => {
-  button.addEventListener("click", () => {
-    const text = button.textContent.trim();
-    sendMessageFromText(text);
-  });
+    button.addEventListener("click", () => {
+        const text = button.textContent.trim();
+        sendMessageFromText(text);
+    });
 });
 
 document.getElementById("input-message").addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    sendMessage();
-  }
+    if (e.key === "Enter") {
+        e.preventDefault();
+        sendMessage();
+    }
 });

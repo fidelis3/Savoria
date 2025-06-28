@@ -1,4 +1,5 @@
-# Restaurant-Website
+# Savoria Restaurant-Website
+
 ## 👥 Team Members & Roles
 
 1. **Edmond Oketch** – UI/UX Designer
